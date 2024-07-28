@@ -7,9 +7,10 @@ import requests
 
 
 def fetch_poster(movie_id):
-    response = requests.get("https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US".format(movie_id))
+    response = requests.get("https://api.themoviedb.org/3/movie/{}?api_key=48465a0e03c7d658a52b28098b98ad65&language=en-US".format(movie_id))
     data = response.json()
-    poster_path = data['poster_path']
+    st.text(data)
+    st.text("https://api.themoviedb.org/3/movie/{}?api_key=48465a0e03c7d658a52b28098b98ad65&language=en-US".format(movie_id))
     return "https://image.tmdb.org/t/p/w500/" + data['poster_path']
 
 def recommend(movie):
@@ -45,7 +46,6 @@ if st.button('Recommendation'):
     with col2:
         st.text(movie_name[1])
         st.image(movie_poster[1])
-
     with col3:
         st.text(movie_name[2])
         st.image(movie_poster[2])
